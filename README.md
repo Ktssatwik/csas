@@ -2,54 +2,9 @@
 
 A retail analytics platform built with **FastAPI + MySQL + Streamlit**.
 
----
-
-## Project Structure
-
-```
-csas/
-├── data/                        # Raw CSV files
-│   ├── customers.csv
-│   ├── orders.csv
-│   ├── order_items.csv
-│   └── products.csv
-│
-├── backend/                     # FastAPI application
-│   ├── main.py                  # App entry point + CORS
-│   ├── config.py                # DB config via .env
-│   ├── database.py              # SQLAlchemy engine + session
-│   ├── models.py                # ORM table definitions
-│   ├── schemas.py               # Pydantic response models
-│   ├── crud.py                  # Basic list queries
-│   ├── analytics.py             # Analytics logic
-│   ├── utils.py                 # Helpers (future use)
-│   └── routes/
-│       ├── customers.py         # GET /customers/
-│       ├── orders.py            # GET /orders/
-│       ├── products.py          # GET /products/
-│       └── analytics.py        # GET /analytics/*
-│
-├── frontend/                    # Streamlit dashboard
-│   ├── app.py                   # Home page + quick stats
-│   └── pages/
-│       ├── sales_dashboard.py   # Revenue trends & geo breakdown
-│       ├── customer_analysis.py # Top spenders & repeat buyers
-│       └── product_analysis.py  # Best sellers & categories
-│
-├── database/
-│   ├── schema.sql               # CREATE TABLE statements
-│   └── load_data.py             # CSV → MySQL loader
-│
-├── docs/
-│   └── sql_queries.md           # SQL query documentation
-│
-├── requirements.txt
-└── README.md
-```
-
----
-
 ## Setup
+
+### 0. create a venv and use it 
 
 ### 1. Install dependencies
 ```bash
@@ -74,13 +29,13 @@ This will: create the `csas` database, run `schema.sql`, and import all CSVs.
 
 ### 4. Start the FastAPI backend
 ```bash
-uvicorn backend.main:app --reload
+python -m uvicorn backend.main:app --reload
 ```
 API docs available at: http://localhost:8000/docs
 
 ### 5. Start the Streamlit frontend
 ```bash
-streamlit run frontend/app.py
+python -m streamlit run frontend/app.py
 ```
 Dashboard at: http://localhost:8501
 

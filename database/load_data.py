@@ -4,7 +4,6 @@ This script reads DB credentials from .env and inserts data into the 4 tables.
 """
 
 import os
-
 import pandas as pd
 import mysql.connector
 from dotenv import load_dotenv
@@ -22,7 +21,7 @@ def get_db_config() -> dict:
     return {
         "host": os.getenv("DB_HOST", "localhost"),
         "user": os.getenv("DB_USER", "root"),
-        "password": os.getenv("DB_PASSWORD", ""),
+        "password": os.getenv("DB_PASSWORD", "Bablu@1103"),
         "database": os.getenv("DB_NAME", "csas"),
         "port": int(os.getenv("DB_PORT", "3306")),
     }
