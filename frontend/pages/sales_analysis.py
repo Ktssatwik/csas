@@ -69,7 +69,6 @@
 
 """
 CSAS — Sales Analytics Page
-Cyberpunk Neon Dashboard
 """
 
 import streamlit as st

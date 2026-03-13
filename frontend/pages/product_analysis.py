@@ -77,7 +77,6 @@
 
 """
 CSAS — Product Analytics Page
-Cyberpunk Neon Dashboard
 """
 
 import streamlit as st

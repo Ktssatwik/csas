@@ -62,8 +62,7 @@
 
 
 """
-CSAS — Customer Analytics Page
-Cyberpunk Neon Dashboard
+CSAS — Customer 
 """
 
 import streamlit as st

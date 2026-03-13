@@ -34,7 +34,6 @@ GROUP BY c.customer_id, c.name, c.city
 ORDER BY orders_count DESC
 LIMIT ?;
 ```
-
 ### Customers by City
 ```sql
 SELECT city, COUNT(*) AS customer_count
