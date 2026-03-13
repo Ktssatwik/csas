@@ -4,28 +4,15 @@ This script reads DB credentials from .env and inserts data into the 4 tables.
 """
 
 import os
+import sys
+
 import pandas as pd
 import mysql.connector
-from dotenv import load_dotenv
 
+# Allow importing from backend/ when running this script from project root.
+sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
-# Load environment variables from .env in the project root.
-load_dotenv()
-
-
-def get_db_config() -> dict:
-    """
-    Read DB config from environment variables.
-    Expected keys: DB_HOST, DB_USER, DB_PASSWORD, DB_NAME, optional DB_PORT.
-    """
-    return {
-        "host": os.getenv("DB_HOST", "localhost"),
-        "user": os.getenv("DB_USER", "root"),
-        "password": os.getenv("DB_PASSWORD", "Bablu@1103"),
-        "database": os.getenv("DB_NAME", "csas"),
-        "port": int(os.getenv("DB_PORT", "3306")),
-    }
-
+from backend.db_config import get_db_config
 
 def truncate_tables(cursor) -> None:
     """

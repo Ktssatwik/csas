@@ -3,6 +3,7 @@ csas
 ├── backend (-----contains fast api logic-----)
 │   ├── main.py (-----starts the fast api server-----)
 │   ├── database.py (-----connects the fastapi to sql-----)
+│   ├── config.py (-----contains env varibales-----)  
 │   ├── schemas.py (-----defines api response structures-----)
 │   ├── crud.py (-----contains sql operations-----)
 │   ├── analytics.py (-----this is where i write the analytics logic-----)

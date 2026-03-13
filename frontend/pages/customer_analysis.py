@@ -76,7 +76,7 @@ import sys
 # Ensure this pages folder is on the path so _shared can be imported
 sys.path.append(os.path.dirname(__file__))
 
-from _shared import (  # noqa: E402
+from _shared import (  
     apply_global_styles,
     page_header,
     section_header,
@@ -92,7 +92,7 @@ apply_global_styles()
 sidebar_nav()
 
 page_header("CUSTOMER ANALYTICS", "SPENDING · LOYALTY · GEOGRAPHY", "#00ffc8")
-section_header("CUSTOMER HEALTH")
+section_header("CUSTOMER ANALYSIS")
 
 repeat_data = get_data("/analytics/customers/repeat-vs-new")
 freq_data   = get_data("/analytics/customers/order-frequency")
