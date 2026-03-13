@@ -265,7 +265,6 @@
 
 """
 CSAS — Customer Sales Analytics System
-Cyberpunk Neon Dashboard
 """
 
 import streamlit as st

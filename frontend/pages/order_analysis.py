@@ -113,7 +113,7 @@ if not df_dist.empty:
         fig = px.bar(df_dist, x="value_bucket", y="orders_count",
                      title="ORDERS BY SPEND TIER",
                      color="orders_count",
-                     color_continuous_scale=["#050810", "#7b2fff", "#ffb400"],
+                     color_continuous_scale=["#1DD144", "#7b2fff", "#ffb400"],
                      labels={"value_bucket": "Spend Tier", "orders_count": "Orders"})
         apply_chart_style(fig)
         fig.update_coloraxes(showscale=False)
