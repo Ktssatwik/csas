@@ -1,0 +1,31 @@
+product_id,product_name,category,price
+1,Wireless Headphones,Electronics,79.99
+2,Bluetooth Speaker,Electronics,49.99
+3,USB-C Hub,Electronics,34.99
+4,Mechanical Keyboard,Electronics,119.99
+5,Webcam HD,Electronics,59.99
+6,Running Shoes,Clothing,89.99
+7,Yoga Mat,Sports,29.99
+8,Water Bottle,Sports,19.99
+9,Resistance Bands,Sports,14.99
+10,Dumbbell Set,Sports,59.99
+11,Novel: The Lost City,Books,12.99
+12,Python Programming,Books,39.99
+13,Data Science Handbook,Books,44.99
+14,Sci-Fi Collection,Books,18.99
+15,Cook Book,Books,24.99
+16,Coffee Maker,Home,69.99
+17,Air Purifier,Home,129.99
+18,Desk Lamp,Home,39.99
+19,Throw Blanket,Home,34.99
+20,Candle Set,Home,22.99
+21,Face Moisturizer,Beauty,27.99
+22,Shampoo Set,Beauty,18.99
+23,Lip Gloss Kit,Beauty,14.99
+24,Perfume,Beauty,59.99
+25,Sunscreen SPF50,Beauty,16.99
+26,Notebook Set,Stationery,9.99
+27,Ballpoint Pens,Stationery,6.99
+28,Sticky Notes,Stationery,4.99
+29,Planner 2025,Stationery,17.99
+30,Backpack,Bags,54.99

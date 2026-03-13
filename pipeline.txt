@@ -1,0 +1,110 @@
+Customer Sales Analytics System (CSAS) — Detailed Pipeline
+
+Goal
+Build a system that loads CSV data into MySQL, exposes analytics via FastAPI,
+and renders dashboards in Streamlit by calling those APIs.
+
+Assumptions
+- You are using MySQL and the Python package mysql-connector-python.
+- You will keep SQL in Python (no SQLAlchemy ORM).
+- The four CSV files are in data/: customers.csv, orders.csv, order_items.csv, products.csv.
+
+Phase 1 — Environment Setup
+1) Install prerequisites:
+   - Python 3.10+ (3.11 or 3.12 preferred)
+   - MySQL Server (local)
+2) Create and activate a virtual environment:
+   - python -m venv .venv
+   - .\.venv\Scripts\activate
+3) Install dependencies:
+   - pip install -r requirements.txt
+
+Phase 2 — Database Design and Creation
+1) Decide the schema for 4 tables:
+   - customers
+   - orders
+   - order_items
+   - products
+2) In database/schema.sql, define:
+   - table columns and data types
+   - primary keys
+   - foreign keys (orders.customer_id -> customers.id; order_items.order_id -> orders.id; order_items.product_id -> products.id)
+   - indexes for common query fields (customer_id, product_id, order_date)
+3) Create a MySQL database:
+   - CREATE DATABASE csas;
+   - USE csas;
+4) Run schema.sql to create tables.
+
+Phase 3 — CSV Load Pipeline (ETL)
+1) In database/load_data.py:
+   - Read .env (or config.py) for DB credentials.
+   - Connect to MySQL with mysql-connector.
+   - Truncate tables in safe order (order_items -> orders -> products -> customers).
+   - For each CSV:
+     - Load into pandas DataFrame.
+     - Clean columns (strip spaces, normalize case, handle missing values).
+     - Insert rows into the matching table using executemany.
+   - Use a transaction and commit once per table.
+2) Validate load:
+   - Run SELECT COUNT(*) on each table.
+   - Compare with CSV row counts.
+
+Phase 4 — FastAPI Backend
+1) backend/config.py:
+   - Optional; keep unused since we read from .env.
+2) backend/database.py:
+   - Create a get_connection() function that returns a mysql-connector connection.
+3) backend/crud.py:
+   - Write low-level query helpers:
+     - fetch_all(query, params)
+     - fetch_one(query, params)
+     - execute(query, params)
+4) backend/analytics.py:
+   - Write reusable analytics queries, e.g.:
+     - Top customers by revenue
+     - Most purchased products
+     - Sales by city
+     - Monthly sales trend
+5) backend/routes/*.py:
+   - Define endpoints that call analytics functions and return JSON.
+6) backend/main.py:
+   - Create FastAPI app and include routers.
+   - Add CORS if Streamlit is on a different port.
+7) Extras:
+   - Read DB creds from .env (single source of truth).
+   - Add a /health endpoint to verify DB connectivity.
+   - Add basic error handling around DB calls.
+   - Use Pydantic schemas for consistent responses.
+   - Add simple limit/pagination for list endpoints.
+
+Phase 5 — Streamlit Frontend
+
+1) frontend/app.py:
+   - Set app title and sidebar navigation.
+2) frontend/pages/*.py:
+   - For each page, call FastAPI endpoints using requests.
+   - Convert JSON into DataFrames.
+   - Render charts with Plotly or Streamlit built-ins.
+
+Phase 6 — Documentation
+1) docs/sql_queries.md:
+   - Record the SQL for each analytics query.
+   - Include description of inputs and outputs.
+2) README.md:
+   - Setup steps
+   - Run commands
+   - Example screenshots (optional)
+
+Phase 7 — Run and Verify
+1) Start MySQL server.
+2) Run database/load_data.py to populate tables.
+3) Start FastAPI:
+   - uvicorn backend.main:app --reload
+4) Start Streamlit:
+   - streamlit run frontend/app.py
+5) Verify:
+   - API endpoints return correct JSON.
+   - Dashboards display accurate charts.
+
+Output Pipeline Summary
+CSV Files -> load_data.py -> MySQL Tables -> FastAPI Queries -> API Endpoints -> Streamlit UI -> Dashboards

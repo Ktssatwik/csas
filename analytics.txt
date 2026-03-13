@@ -1,0 +1,79 @@
+Customer Analytics
+1) Top N customers by spending
+   - Total spend per customer = SUM(quantity * price)
+   - Return: customer_id, name, city, total_spend, total_orders
+2) Top N frequent customers by number of orders
+   - Count orders per customer
+   - Return: customer_id, name, city, orders_count
+3) Number of customers from each city
+   - Count customers grouped by city
+   - Return: city, customer_count
+4) Customer lifetime value (Top N)
+   - Total spend, avg order value, customer lifespan
+   - Return: customer_id, name, city, total_orders, total_spend, avg_order_value, customer_lifespan_days
+5) Repeat vs new customers
+   - Repeat = customers with >1 order
+   - Return: customer_type (Repeat/New), customer_count
+6) Customer order frequency
+   - Distribution of number of orders per customer
+   - Return: order_count, num_customers
+
+Product Analysis
+1) Top N products by revenue
+   - Revenue per product = SUM(quantity * price)
+   - Return: product_id, product_name, category, total_revenue
+2) Top N products by items sold
+   - Quantity per product = SUM(quantity)
+   - Return: product_id, product_name, category, total_quantity
+3) Number of items sold per category
+   - Quantity per category = SUM(quantity)
+   - Return: category, total_quantity
+4) Revenue by category
+   - Revenue per category = SUM(quantity * price)
+   - Return: category, total_revenue
+5) Underperforming products (lowest revenue)
+   - Define as lowest total revenue with at least 1 sale
+   - Return: product_id, product_name, category, total_revenue
+   - Use LIMIT N and ORDER BY total_revenue ASC
+6) Product price vs revenue
+   - Compare product price to revenue and units sold
+   - Return: product_name, category, price, total_units_sold, total_revenue
+7) Average price by category
+   - Return: category, avg_price, product_count
+
+Sales Analysis
+1) Monthly sales trend (by order date)
+   - Revenue per month = SUM(quantity * price)
+   - Return: month (YYYY-MM), total_revenue
+2) Number of orders across each month
+   - Count orders per month
+   - Return: month (YYYY-MM), orders_count
+3) Revenue by each city
+   - Revenue per city = SUM(quantity * price)
+   - Return: city, total_revenue
+4) Order status breakdown
+   - Count orders by status
+   - Return: status, orders_count, percentage_of_total
+5) Month-over-month revenue growth
+   - Growth % compared to previous month
+   - Return: month, total_revenue, prev_revenue, growth_pct
+6) Revenue by weekday
+   - Revenue and orders by day of week
+   - Return: weekday, day_num, total_revenue, orders_count
+7) City x category revenue heatmap
+   - Revenue per city/category pair
+   - Return: city, category, total_revenue
+
+Order Analysis
+1) Average order value
+   - Total revenue / number of orders
+   - Return: avg_order_value
+2) Average items per order
+   - Total quantity / number of orders
+   - Return: avg_items_per_order
+3) Order value distribution
+   - Bucket orders into spend tiers
+   - Return: value_bucket, orders_count
+4) High value orders (Top N)
+   - Highest total order values
+   - Return: order_id, customer_name, city, order_date, status, order_total, distinct_products

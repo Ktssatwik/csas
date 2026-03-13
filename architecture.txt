@@ -1,0 +1,50 @@
+csas
+│
+├── backend (-----contains fast api logic-----)
+│   ├── main.py (-----starts the fast api server-----)
+│   ├── database.py (-----connects the fastapi to sql-----)
+│   ├── schemas.py (-----defines api response structures-----)
+│   ├── crud.py (-----contains sql operations-----)
+│   ├── analytics.py (-----this is where i write the analytics logic-----)
+│   └── routes (----- each file defines api endpoints -----)
+│        ├── customers_analysis.py
+│        ├── orders_analysis.py
+│        ├── products_analysis.py
+│        └── sales_analysis.py
+|
+|
+├── data (contains csv files)
+│   ├── customers.csv
+│   ├── orders.csv
+│   ├── order_items.csv
+│   └── products.csv 
+│
+|
+├── database 
+│   ├── schema.sql (----create tabales-----)
+│   └── load_data.py (----loads csv to mysql----)
+│
+|
+├── docs
+│   └── sql_queries.md
+│
+|
+├── frontend  (contains streamlit dashboard)
+│   ├── app.py (main ui page)
+│   └── pages (-----multiple dashboards-----)
+│        ├── _shared.py
+│        ├── customer_analysis.py
+│        ├── order_analysis.py
+│        ├── product_analysis.py
+│        └── sales_dashboard.py
+│
+├── .env
+├── requirements.txt
+├── analytics.txt
+├── pipeline.txt
+├── project_desc.txt
+├── requirements.txt
+└── README.md
+
+
+
