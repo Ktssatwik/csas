@@ -14,36 +14,36 @@ load_dotenv()
 API_BASE_URL = os.getenv("API_BASE_URL", "http://localhost:8000")
 
 
-# ── Plotly theme ──────────────────────────────────────────────────────────────
-PLOTLY_TEMPLATE = dict(
-    layout=go.Layout(
-        paper_bgcolor="rgba(0,0,0,0)",
-        plot_bgcolor="rgba(5,8,16,0.95)",
-        font=dict(family="Share Tech Mono, monospace", color="#c8d8f0", size=11),
-        title=dict(font=dict(family="Orbitron, monospace", color="#00ffc8", size=14)),
-        xaxis=dict(
-            gridcolor="rgba(0,255,200,0.08)",
-            linecolor="rgba(0,255,200,0.15)",
-            tickfont=dict(family="Share Tech Mono, monospace", color="rgba(200,216,240,0.6)"),
-            title_font=dict(color="rgba(0,255,200,0.6)"),
-        ),
-        yaxis=dict(
-            gridcolor="rgba(0,255,200,0.08)",
-            linecolor="rgba(0,255,200,0.15)",
-            tickfont=dict(family="Share Tech Mono, monospace", color="rgba(200,216,240,0.6)"),
-            title_font=dict(color="rgba(0,255,200,0.6)"),
-        ),
-        legend=dict(
-            bgcolor="rgba(5,8,16,0.8)",
-            bordercolor="rgba(0,255,200,0.15)",
-            borderwidth=1,
-            font=dict(family="Share Tech Mono, monospace", color="#c8d8f0"),
-        ),
-        colorway=["#00ffc8", "#0099ff", "#cc00ff", "#ffb400", "#ff4060",
-                  "#00e5ff", "#7b2fff", "#ff6e00", "#39ff14", "#ff007f"],
-        margin=dict(l=40, r=20, t=50, b=40),
-    )
-)
+# # ── Plotly theme ──────────────────────────────────────────────────────────────
+# PLOTLY_TEMPLATE = dict(
+#     layout=go.Layout(
+#         paper_bgcolor="rgba(0,0,0,0)",
+#         plot_bgcolor="rgba(5,8,16,0.95)",
+#         font=dict(family="Share Tech Mono, monospace", color="#c8d8f0", size=11),
+#         title=dict(font=dict(family="Orbitron, monospace", color="#00ffc8", size=14)),
+#         xaxis=dict(
+#             gridcolor="rgba(0,255,200,0.08)",
+#             linecolor="rgba(0,255,200,0.15)",
+#             tickfont=dict(family="Share Tech Mono, monospace", color="rgba(200,216,240,0.6)"),
+#             title_font=dict(color="rgba(0,255,200,0.6)"),
+#         ),
+#         yaxis=dict(
+#             gridcolor="rgba(0,255,200,0.08)",
+#             linecolor="rgba(0,255,200,0.15)",
+#             tickfont=dict(family="Share Tech Mono, monospace", color="rgba(200,216,240,0.6)"),
+#             title_font=dict(color="rgba(0,255,200,0.6)"),
+#         ),
+#         legend=dict(
+#             bgcolor="rgba(5,8,16,0.8)",
+#             bordercolor="rgba(0,255,200,0.15)",
+#             borderwidth=1,
+#             font=dict(family="Share Tech Mono, monospace", color="#c8d8f0"),
+#         ),
+#         colorway=["#00ffc8", "#0099ff", "#cc00ff", "#ffb400", "#ff4060",
+#                   "#00e5ff", "#7b2fff", "#ff6e00", "#39ff14", "#ff007f"],
+#         margin=dict(l=40, r=20, t=50, b=40),
+#     )
+# )
 
 NEON_COLORS = ["#00ffc8", "#0099ff", "#cc00ff", "#ffb400", "#ff4060",
                "#00e5ff", "#7b2fff", "#ff6e00"]
