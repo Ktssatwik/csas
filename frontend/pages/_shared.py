@@ -185,6 +185,7 @@ def insight(text: str):
     st.markdown(f"<div class='insight-box'>⚡ {text}</div>", unsafe_allow_html=True)
 
 
+# dis is tha importsnt  
 def get_data(path: str):
     url = f"{API_BASE_URL}{path}"
     response = requests.get(url, timeout=30)

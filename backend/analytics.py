@@ -511,7 +511,7 @@ def orders_per_month():
     return fetch_all(query)
 
 
-def revenue_by_city():
+def revenue_by_city():  
     query = """
         SELECT
             c.city,
