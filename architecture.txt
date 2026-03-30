@@ -7,11 +7,13 @@ csas
 │   ├── schemas.py (-----defines api response structures-----)
 │   ├── crud.py (-----contains sql operations-----)
 │   ├── analytics.py (-----this is where i write the analytics logic-----)
+│   ├── filter_analytics.py (-----this is where i write the filter analytics logic-----)
 │   └── routes (----- each file defines api endpoints -----)
 │        ├── customers_analysis.py
 │        ├── orders_analysis.py
 │        ├── products_analysis.py
-│        └── sales_analysis.py
+│        ├──sales_analysis.py
+|        └──filter_routes.py (-----this file has the routes for filters-----)
 |
 |
 ├── data (contains csv files)

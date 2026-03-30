@@ -15,15 +15,3 @@ Organize the project using clean Python code
 
 
 
-
-hey i need your help in my project Customer Sales Analytics System Use Case A retail company sells products 
-across multiple cities. The company stores customer, order, and product information in a database, but the management team wants an 
-analytics system that can generate reports and insights. You are required to build a Customer Sales Analytics
-Tool using SQL, Python, and Streamlit. The tool should: Store and query sales data Analyze customer purchasing 
-behavior Generate insights and reports Handle data processing errors Provide an interactive Streamlit dashboard 
-Organize the project using clean Python code we are given 4 csv file basically these are 4 tables customers
-,order_items,orders,products.csv files now we should show analytics like highly reapeted customers , high valed products 
-,etc etc these 2 are just for example we need to use fastapi for backend we need to do sql query documentation we 
-can do the ui in streamlit the filterting need to be done with fast api use mysql for database storing all logic we need 
-to write in fast api give me the file structures first and the approach how to accumpoish it the main project folder 
-nmae is csas and u gave the architecture

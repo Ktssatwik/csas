@@ -64,3 +64,44 @@ All analytics endpoints accept optional `date_from` and `date_to` query paramete
 ```
 CSV Files → load_data.py → MySQL → FastAPI → API Endpoints → Streamlit → Dashboard
 ```
+
+---
+
+## New Updates: Dynamic Filter Module
+
+The project now includes a dedicated filter module:
+
+- `backend/filter_analysis.py`
+- `backend/routes/filter_routes.py`
+
+And the routes are registered in `backend/main.py` using:
+
+```python
+app.include_router(filter_routes.router)
+```
+
+### Filter API Base Path
+
+All new filter APIs are under:
+
+`/analytics/filters`
+
+### 8 New Filter Endpoints (2 per data domain)
+
+| Method | Endpoint | What it does |
+|--------|----------|--------------|
+| GET | `/analytics/filters/customers/list` | Customer list with filters like city, signup range, name search, min orders, top_n |
+| GET | `/analytics/filters/customers/spend-summary` | Customer spend metrics (total spend, avg order value, total orders) with spend/date/city filters |
+| GET | `/analytics/filters/orders/list` | Orders list with date range, status, customer, city, and top_n filters |
+| GET | `/analytics/filters/orders/value-summary` | Per-order totals and item counts with date/status/customer/value-range filters |
+| GET | `/analytics/filters/order-items/list` | Raw order-item rows with category/product/order/quantity filters |
+| GET | `/analytics/filters/order-items/grouped` | Product-level rollup from order items (units, revenue, order_count) with date/category filters |
+| GET | `/analytics/filters/products/list` | Product catalog filtering by category, price range, product id, name, and top_n |
+| GET | `/analytics/filters/products/sales-summary` | Product sales summary with category/date/revenue-range filters |
+
+### Common Filter Style
+
+- Date filters: `date_from`, `date_to` (format: `YYYY-MM-DD`)
+- Numeric range filters: `min_*`, `max_*`
+- Entity filters: `customer_id`, `product_id`, `order_id`, `city`, `category`, `status`
+- Result-size filter: `top_n`
