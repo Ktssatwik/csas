@@ -7,7 +7,13 @@ Registers routes and enables CORS for Streamlit.
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from .routes import customer_analysis, product_analysis, sales_analysis, order_analysis
+from .routes import (
+    customer_analysis,
+    product_analysis,
+    sales_analysis,
+    order_analysis,
+    filter_routes,
+)
 from .database import get_connection
 
 
@@ -39,3 +45,4 @@ app.include_router(customer_analysis.router)
 app.include_router(product_analysis.router)
 app.include_router(sales_analysis.router)
 app.include_router(order_analysis.router)
+app.include_router(filter_routes.router)

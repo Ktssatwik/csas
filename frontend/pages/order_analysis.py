@@ -12,7 +12,7 @@ import sys
 # Ensure this pages folder is on the path so _shared can be imported
 sys.path.append(os.path.dirname(__file__))
 
-from _shared import (  # noqa: E402
+from _shared import (  
     apply_global_styles,
     page_header,
     section_header,
@@ -62,6 +62,7 @@ if not df_dist.empty:
                                               categories=BUCKET_ORDER, ordered=True)
     df_dist = df_dist.sort_values("value_bucket")
 
+    # col1, col2, col3 = st.columns(3)
     col1, col2 = st.columns(2)
     with col1:
         fig = px.bar(df_dist, x="value_bucket", y="orders_count",
@@ -81,6 +82,9 @@ if not df_dist.empty:
                       category_orders={"value_bucket": BUCKET_ORDER})
         apply_chart_style(fig2)
         st.plotly_chart(fig2, use_container_width=True)
+    
+    # with col3:
+    #     st.write("hye uys")
 
     top_tier = df_dist.loc[df_dist["orders_count"].idxmax()]
     pct = round(top_tier["orders_count"] / total_orders * 100, 1)

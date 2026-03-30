@@ -73,13 +73,13 @@ if not df_monthly.empty and not df_growth.empty:
         line=dict(color="#cc00ff", width=2.5),
         name="Revenue ($)",
         mode="lines+markers",
-        marker=dict(size=6, color="#cc00ff",
+        marker=dict(size=6, color="#06ed29",
                     line=dict(width=1, color="rgba(255,255,255,0.3)")),
     ))
     apply_chart_style(fig)
     fig.update_layout(title="MONTHLY REVENUE TREND", height=340)
     st.plotly_chart(fig, use_container_width=True)
-
+ 
     # Growth % bar
     df_growth_clean = df_growth.dropna(subset=["growth_pct"])
     if not df_growth_clean.empty:
@@ -110,7 +110,7 @@ if not df_opm.empty:
                  title="ORDERS PER MONTH",
                  labels={"month": "Month", "orders_count": "Orders"},
                  color="orders_count",
-                 color_continuous_scale=["#050810", "#0033aa", "#0099ff"])
+                 color_continuous_scale=["#7D9EF8", "#0033aa", "#0099ff"])
     apply_chart_style(fig)
     fig.update_coloraxes(showscale=False)
     st.plotly_chart(fig, use_container_width=True)
@@ -127,7 +127,7 @@ if not df_wd.empty:
         fig = px.bar(df_wd, x="weekday", y="total_revenue",
                      title="REVENUE BY WEEKDAY",
                      color="total_revenue",
-                     color_continuous_scale=["#050810", "#7b2fff", "#cc00ff"],
+                     color_continuous_scale=["#F88EF5", "#7b2fff", "#cc00ff"],
                      labels={"weekday": "", "total_revenue": "Revenue ($)"})
         apply_chart_style(fig)
         fig.update_coloraxes(showscale=False)

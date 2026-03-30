@@ -89,30 +89,30 @@ with col2:
 insight(f"{repeat_pct}% of customers are repeat buyers — focus retention campaigns on the {new_count:,} one-time buyers to boost this ratio.")
 
 # ── CLV TABLE ─────────────────────────────────────────────────────────────────
-section_header("CUSTOMER LIFETIME VALUE — TOP 20")
+# section_header("CUSTOMER LIFETIME VALUE — TOP 20")
 
-if not df_clv.empty:
-    # Scatter: CLV vs lifespan
-    fig = px.scatter(df_clv, x="customer_lifespan_days", y="total_spend",
-                     size="total_orders", color="city",
-                     hover_name="name",
-                     title="CLV MAP — SPEND vs LIFESPAN vs ORDER VOLUME",
-                     labels={"customer_lifespan_days": "Lifespan (days)",
-                             "total_spend": "Total Spend ($)",
-                             "total_orders": "Orders"},
-                     color_discrete_sequence=NEON_COLORS)
-    apply_chart_style(fig)
-    fig.update_traces(marker=dict(line=dict(width=1, color="rgba(0,255,200,0.3)")))
-    st.plotly_chart(fig, use_container_width=True)
+# if not df_clv.empty:
+#     # Scatter: CLV vs lifespan
+#     fig = px.scatter(df_clv, x="customer_lifespan_days", y="total_spend",
+#                      size="total_orders", color="city",
+#                      hover_name="name",
+#                      title="CLV MAP — SPEND vs LIFESPAN vs ORDER VOLUME",
+#                      labels={"customer_lifespan_days": "Lifespan (days)",
+#                              "total_spend": "Total Spend ($)",
+#                              "total_orders": "Orders"},
+#                      color_discrete_sequence=NEON_COLORS)
+#     apply_chart_style(fig)
+#     fig.update_traces(marker=dict(line=dict(width=1, color="rgba(0,255,200,0.3)")))
+#     st.plotly_chart(fig, use_container_width=True)
 
-    st.dataframe(
-        df_clv.rename(columns={
-            "customer_id": "ID", "name": "Name", "city": "City",
-            "total_orders": "Orders", "total_spend": "Total Spend ($)",
-            "avg_order_value": "Avg Order ($)", "customer_lifespan_days": "Lifespan (days)"
-        }).style.format({"Total Spend ($)": "${:,.2f}", "Avg Order ($)": "${:,.2f}"}),
-        use_container_width=True, hide_index=True
-    )
+#     st.dataframe(
+#         df_clv.rename(columns={
+#             "customer_id": "ID", "name": "Name", "city": "City",
+#             "total_orders": "Orders", "total_spend": "Total Spend ($)",
+#             "avg_order_value": "Avg Order ($)", "customer_lifespan_days": "Lifespan (days)"
+#         }).style.format({"Total Spend ($)": "${:,.2f}", "Avg Order ($)": "${:,.2f}"}),
+#         use_container_width=True, hide_index=True
+#     )
 
 # ── TOP SPENDERS ──────────────────────────────────────────────────────────────
 section_header("TOP SPENDERS")

@@ -157,6 +157,7 @@ def insight(text: str):
 def get_data(path: str):
     url = f"{API_BASE_URL}{path}"
     response = requests.get(url, timeout=30)
+    # response = requests.post(url, timeout=30)
     response.raise_for_status()
     return response.json()
 
@@ -189,7 +190,7 @@ def sidebar_nav():
     </div>
     <div style='font-family: Share Tech Mono, monospace; font-size:10px;
                 color:rgba(200,216,240,0.35); letter-spacing:1px;'>
-        ANALYTICS // v2.0
+        ANALYTICS 
     </div>
 </div>
 """, unsafe_allow_html=True)
